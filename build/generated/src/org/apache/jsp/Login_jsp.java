@@ -172,7 +172,8 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <p class=\"message\">Not registered? <a href=\"#\">Create an account</a></p>\n");
       out.write("                </form>\n");
       out.write("            </div>\n");
-      out.write("        </div>    </body>\n");
+      out.write("        </div>   \n");
+      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

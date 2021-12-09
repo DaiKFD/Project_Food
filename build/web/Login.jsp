@@ -133,5 +133,6 @@
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
             </div>
-        </div>    </body>
+        </div>   
+    </body>
 </html>
