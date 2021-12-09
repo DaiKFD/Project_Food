@@ -205,7 +205,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="hero__search__phone__text">
-                                    <h5>+65 11.188.888</h5>
+                                    <h5>+84 (0984444483)</h5>
                                     <span>support 24/7 time</span>
                                 </div>
                             </div>
@@ -700,7 +700,7 @@
                             </div>
                             <ul>
                                 <li>Address: 60-49 Road 11378 New York</li>
-                                <li>Phone: +65 11.188.888</li>
+                                <li>Phone: +84 (0984444483)</li>
                                 <li>Email: hello@colorlib.com</li>
                             </ul>
                         </div>
