@@ -47,36 +47,21 @@
                     <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                     <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
-            </div>
-            <div class="humberger__menu__widget">
-                <div class="header__top__right__language">
-                    <img src="img/language.png" alt="">
-                    <div>English</div>
-                    <span class="arrow_carrot-down"></span>
-                    <ul>
-                        <li><a href="#">Spanis</a></li>
-                        <li><a href="#">English</a></li>
-                    </ul>
-                </div>
-                <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
-                </div>
+                <div class="header__cart__price">Tổng cộng: <span>150.000vnd</span></div>
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="./index.html">Home</a></li>
-                    <li><a href="./shop-grid.html">Shop</a></li>
-                    <li><a href="#">Pages</a>
+                    <li class="active"><a href="./index.html">TRANG CHỦ</a></li>
+                    <li><a href="./shop-grid.html">CỬA HÀNG</a></li>
+                    <li><a href="#">TRANG</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="./shop-details.html">Shop Details</a></li>
-                            <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                            <li><a href="./checkout.html">Check Out</a></li>
-                            <li><a href="./blog-details.html">Blog Details</a></li>
+                            <li><a href="./shop-details.html">CHI TIẾT CỬA HÀNG</a></li>
+                            <li><a href="./shoping-cart.html">GIỎ HÀNG</a></li>
+                            <li><a href="./checkout.html">THANH TOÁN</a></li>
                         </ul>
                     </li>
                     <li><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./contact.html">LIÊN HỆ</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
@@ -114,7 +99,7 @@
                                     <a href="https://www.facebook.com/DaiKFD.1404/"><i class="fa fa-facebook"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                    <a href="#"><i class="fa fa-user"></i> Đăng Nhập</a>
                                 </div>
                             </div>
                         </div>
@@ -131,18 +116,17 @@
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./shop-grid.html">Shop</a></li>
-                                <li><a href="#">Pages</a>
+                                <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                                <li><a href="./shop-grid.html">Cửa Hàng</a></li>
+                                <li><a href="#">TRANG</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="./shop-details.html">Shop Details</a></li>
-                                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                        <li><a href="./checkout.html">Check Out</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                        <li><a href="./shop-details.html">CHI TIẾT CỬA HÀNG</a></li>
+                                        <li><a href="./shoping-cart.html">GIỎ HÀNG</a></li>
+                                        <li><a href="./checkout.html">THANH TOÁN</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./blog.html">Blog</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="./contact.html">LIÊN HỆ</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -152,7 +136,7 @@
                                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$150.00</span></div>
+                            <div class="header__cart__price">Tổng cộng: <span>150.000vnd</span></div>
                         </div>
                     </div>
                 </div>
@@ -171,20 +155,15 @@
                         <div class="hero__categories">
                             <div class="hero__categories__all">
                                 <i class="fa fa-bars"></i>
-                                <span>All departments</span>
+                                <span>Danh Mục</span>
                             </div>
                             <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
-                                <li><a href="#">Fresh Bananas</a></li>
+                                <li><a href="#">Rau Quả Tươi</a></li>
+                                <li><a href="#">Thực Phẩm Chay Đông Lạnh</a></li>
+                                <li><a href="#">Chả Chay Ngon</a></li>
+                                <li><a href="#">Đồ Chay Ăn Liền</a></li>
+                                <li><a href="#">Gia Vị Chay, Sốt Chay</a></li>
+                                <li><a href="#">Chả Chay Ngon</a></li>
                             </ul>
                         </div>
                     </div>
@@ -193,11 +172,11 @@
                             <div class="hero__search__form">
                                 <form action="#">
                                     <div class="hero__search__categories">
-                                        All Categories
+                                        Tất Cả Danh Mục
                                         <span class="arrow_carrot-down"></span>
                                     </div>
-                                    <input type="text" placeholder="What do yo u need?">
-                                    <button type="submit" class="site-btn">SEARCH</button>
+                                    <input type="text" placeholder="Bạn Muốn Ăn Gì?">
+                                    <button type="submit" class="site-btn">Search</button>
                                 </form>
                             </div>
                             <div class="hero__search__phone">
@@ -206,7 +185,7 @@
                                 </div>
                                 <div class="hero__search__phone__text">
                                     <h5>+84 (0984444483)</h5>
-                                    <span>support 24/7 time</span>
+                                    <span>hỗ trợ 24/7</span>
                                 </div>
                             </div>
                         </div>
@@ -696,34 +675,17 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__about__logo">
-                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                                <a href="./index.html"><img src="img/chayfoodlogo.png" alt=""></a>
                             </div>
                             <ul>
-                                <li>Address: 60-49 Road 11378 New York</li>
                                 <li>Phone: +84 (0984444483)</li>
-                                <li>Email: hello@colorlib.com</li>
-                            </ul>
+                                <li>Email: dainthe153784@fpt.edu.vn</li>
+                            </ul>About Us
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                        <div class="footer__widget">
-                            <h6>Useful Links</h6>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">About Our Shop</a></li>
-                                <li><a href="#">Secure Shopping</a></li>
-                                <li><a href="#">Delivery infomation</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">Who We Are</a></li>
-                                <li><a href="#">Our Services</a></li>
-                                <li><a href="#">Projects</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Innovation</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                            </ul>
+                        <div class="footer__widget" name="fixFooterogiua">
+                           
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
