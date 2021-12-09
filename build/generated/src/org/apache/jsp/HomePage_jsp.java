@@ -127,7 +127,7 @@ public final class HomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("            <div class=\"humberger__menu__contact\">\n");
       out.write("                <ul>\n");
-      out.write("                    <li><i class=\"fa fa-envelope\"></i> hello@colorlib.com</li>\n");
+      out.write("                    <li><i class=\"fa fa-envelope\"></i>danthe153784@gmail.com</li>\n");
       out.write("                    <li>Free Shipping for all Order of $99</li>\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
