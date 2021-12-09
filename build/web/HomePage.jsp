@@ -163,7 +163,6 @@
                                 <li><a href="#">Chả Chay Ngon</a></li>
                                 <li><a href="#">Đồ Chay Ăn Liền</a></li>
                                 <li><a href="#">Gia Vị Chay, Sốt Chay</a></li>
-                                <li><a href="#">Chả Chay Ngon</a></li>
                             </ul>
                         </div>
                     </div>
@@ -191,10 +190,10 @@
                         </div>
                         <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                             <div class="hero__text">
-                                <span>FRUIT FRESH</span>
-                                <h2>Vegetable <br />100% Organic</h2>
-                                <p>Free Pickup and Delivery Available</p>
-                                <a href="#" class="primary-btn">SHOP NOW</a>
+                                <span>Chay Sạch</span>
+                                <h2>Vì Sức Khỏe<br />100% CHAY</h2>
+                                <p>Nhận và Giao Hàng Miễn Phí</p>
+                                <a href="#" class="primary-btn">MUA NGAY</a>
                             </div>
                         </div>
                     </div>
@@ -209,28 +208,28 @@
                 <div class="row">
                     <div class="categories__slider owl-carousel">
                         <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                                <h5><a href="#">Fresh Fruit</a></h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
-                                <h5><a href="#">Dried Fruit</a></h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
-                                <h5><a href="#">Vegetables</a></h5>
+                                <h5><a href="#">Rau Quả Tươi</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
-                                <h5><a href="#">drink fruits</a></h5>
+                            <div class="categories__item set-bg" data-setbg="img/categories/chaca.jpg">
+                                <h5><a href="#">Chay Đông Lạnh</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
-                                <h5><a href="#">drink fruits</a></h5>
+                            <div class="categories__item set-bg" data-setbg="img/categories/chachay.jpg">
+                                <h5><a href="#">Chả Chay</a></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg" data-setbg="img/categories/anlien.jpg">
+                                <h5><a href="#">Chay Ăn Liền</a></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg" data-setbg="img/categories/giavi.jpg">
+                                <h5><a href="#">Gia Vị, Sốt</a></h5>
                             </div>
                         </div>
                     </div>
@@ -245,15 +244,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2>Featured Product</h2>
+                            <h2>Sản Phẩm Chay Nổi Bật</h2>
                         </div>
                         <div class="featured__controls">
                             <ul>
-                                <li class="active" data-filter="*">All</li>
-                                <li data-filter=".oranges">Oranges</li>
-                                <li data-filter=".fresh-meat">Fresh Meat</li>
-                                <li data-filter=".vegetables">Vegetables</li>
-                                <li data-filter=".fastfood">Fastfood</li>
+                                <li class="active" data-filter="*">Tất Cả</li>
+                                <li data-filter=".oranges">Rau Quả Tươi</li>
+                                <li data-filter=".fresh-meat">Chả Chay</li>
+                                <li data-filter=".vegetables">Chay Đông Lạnh</li>
+                                <li data-filter=".fastfood">Chay Ăn Liền</li>
                             </ul>
                         </div>
                     </div>
