@@ -159,8 +159,8 @@
                                 <span>Danh Mục</span>
                             </div>
                             <ul>
-                                <c:forEach>
-                                    <li><a href="#">Rau Quả Tươi</a></li>
+                                <c:forEach items="${category}" var="c">
+                                    <li><a href="#">${c.categoryName}</a></li>
                                     </c:forEach>
                             </ul>
                         </div>
@@ -205,35 +205,15 @@
         <section class="categories">
             <div class="container">
                 <div class="row">
-                    <c:forEach items="foods" var="f">
-                        <div class="categories__slider owl-carousel">
+                    <div class="categories__slider owl-carousel">
+                        <c:forEach items="${category}" var="c">
                             <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
-                                    <h5><a href="#">Rau Quả Tươi</a></h5>
+                                <div class="categories__item set-bg" data-setbg="${c.categoryImage}">
+                                    <h5><a href="#">${c.categoryName}</a></h5>
                                 </div> 
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="img/categories/chaca.jpg">
-                                    <h5><a href="#">Chay Đông Lạnh</a></h5> 
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="img/categories/chachay.jpg">
-                                    <h5><a href="#">Chả Chay</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="img/categories/anlien.jpg">
-                                    <h5><a href="#">Chay Ăn Liền</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="categories__item set-bg" data-setbg="img/categories/giavi.jpg">
-                                    <h5><a href="#">Gia Vị, Sốt</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                            </div>     
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
         </section>

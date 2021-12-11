@@ -12,6 +12,7 @@ package entity;
 public class Category {
     private int categoryID;
     private String categoryName;
+    private String categoryImage;
 
     public Category() {
     }
@@ -19,6 +20,20 @@ public class Category {
     public Category(int categoryID, String categoryName) {
         this.categoryID = categoryID;
         this.categoryName = categoryName;
+    }
+
+    public Category(int categoryID, String categoryName, String categoryImage) {
+        this.categoryID = categoryID;
+        this.categoryName = categoryName;
+        this.categoryImage = categoryImage;
+    }
+
+    public void setCategoryImage(String categoryImage) {
+        this.categoryImage = categoryImage;
+    }
+
+    public String getCategoryImage() {
+        return categoryImage;
     }
 
     public int getCategoryID() {
