@@ -151,7 +151,16 @@
             </div>
         </header>
         <!-- Header Section End -->
-
+        <%
+            List<Food> lasts
+                    = (List<Food>) request.getAttribute("lasts");
+            List<Food> foods
+                    = (List<Food>) request.getAttribute("foods");
+            String regex = "^[0-9]{2}$";
+            String price = "";
+            int count1 = 0;
+            int count2 = 0;
+        %>
         <!-- Hero Section Begin -->
         <section class="hero">
             <div class="container">
@@ -173,10 +182,6 @@
                         <div class="hero__search">
                             <div class="hero__search__form">
                                 <form action="#">
-                                    <div class="hero__search__categories">
-                                        Tất Cả Danh Mục
-                                        <span class="arrow_carrot-down"></span>
-                                    </div>
                                     <input type="text" placeholder="Bạn Muốn Ăn Gì?">
                                     <button type="submit" class="site-btn">Search</button>
                                 </form>
@@ -234,39 +239,34 @@
                     </div>
                 </div>
                 <div class="row featured__filter">
-                   <c:forEach items="${foods}" var="f">
-                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                            <div class="featured__item">
-                                <div class="featured__item__pic set-bg" data-setbg="${f.foodImage}">
-                                    <ul class="featured__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="featured__item__text">
-                                    <h6><a href="#">${f.foodName}</a></h6>
-                                    <h5>${f.foodPrice}</h5>
-                                </div>
+                    <% for (Food f : foods) {%>
+                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="<%=f.getFoodImage()%>">
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a href="#"><%=f.getFoodName()%></a></h6>
+                                <h5><%=price%></h5>
                             </div>
                         </div>
-                    </c:forEach>
+                    </div>
+                    <%}%>
                 </div>
             </div>
-            
+
         </section>
         <!-- Featured Section End -->
 
         <!-- Banner Begin -->
         <!-- Banner End -->
-        <%
-            List<Food> foods
-                    = (List<Food>) request.getAttribute("foods");
-            String regex = "^[0-9]{2}$";
-            String price = "";
-            int count1 = 0;
-            int count2 = 0;
-        %>
+
         <!-- Latest Product Section Begin -->
         <section class="latest-product spad">
             <div class="container">
@@ -277,9 +277,8 @@
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
 
-                                    <% for (Food f : foods) {%>
-                                    <% if (Pattern.matches("^[0-9]{4}$", String.valueOf(f.getFoodId()))) {%>
-                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", "vnd");%>
+                                    <% for (Food f : lasts) {%>
+                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
@@ -289,13 +288,11 @@
                                             <span><%=price%></span>
                                         </div>
                                     </a>                               
-                                    <%}%>
                                     <%}%>
                                 </div>
                                 <div class="latest-prdouct__slider__item">
-                                    <% for (Food f : foods) {%>
-                                    <% if (Pattern.matches("^[0-9]{4}$", String.valueOf(f.getFoodId()))) {%>
-                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", "vnd");%>
+                                    <% for (Food f : lasts) {%>
+                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
@@ -305,7 +302,6 @@
                                             <span><%=price%></span>
                                         </div>
                                     </a>                               
-                                    <%}%>
                                     <%}%>
                                 </div>
                             </div>
@@ -319,7 +315,7 @@
 
                                     <% for (Food f : foods) {%>
                                     <% if (Pattern.matches(regex, String.valueOf(f.getFoodId()))) {%>
-                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", "vnd");%>
+                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
                                     <a  href = "#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
 
@@ -337,7 +333,7 @@
 
                                     <% for (Food f : foods) {%>
                                     <% if (Pattern.matches(regex, String.valueOf(f.getFoodId()))) {%>
-                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", "vnd");%>
+                                    <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
                                     <a  href = "#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
 
@@ -400,6 +396,19 @@
             </div>
         </section>
         <!-- Latest Product Section End -->
+        <style>
+            .blog__item__pic{
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                left: 100px;
+
+            }
+            .blog__item__text{
+                position: relative;
+                top:140px;
+            }
+        </style>
 
         <!-- Blog Section Begin -->
         <section class="from-blog spad">
@@ -407,7 +416,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title from-blog__title">
-                            <h2>From The Blog</h2>
+                            <h2>LỢI ÍCH MUA ĐỒ CHAY TẠI CHAYFOOD</h2>
                         </div>
                     </div>
                 </div>
@@ -415,45 +424,37 @@
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
-                                <img src="img/blog/blog-1.jpg" alt="">
+                                <img src="https://chaysach.com/wp-content/uploads/2016/06/THUANCHAY-300x300.jpg.webp" alt="">
                             </div>
                             <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                <h5><a href="#">Sản phẩm chất lượng, an toàn
+                                    </a></h5>
+                                <p>Tất cả các mặt hàng ChayFood bán đều là những sản phẩm chất lượng,an toàn và có nguồn gốc xuất xứ rõ ràng.<br>
+                                    ChayFood hiểu rằng chất lượng và tốt cho sức khỏe là yếu tố hàng đầu khi khách hàng lựa chọn thực phẩm chay.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
-                                <img src="img/blog/blog-2.jpg" alt="">
+                                <img src="https://chaysach.com/wp-content/uploads/2016/06/HAILONG-300x300.jpg.webp" alt="">
                             </div>
                             <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                <h5><a href="#">Dịch vụ ưu đãi tốt nhất, đổi trả miễn phí.</a></h5>
+                                <p>ChayFood luôn nỗ lực mang đến một dịch vụ ưu đãi tốt nhất cho khách hàng.<br>
+                                    Chúng tôi cam kết hoàn tiền đổi trả hàng miễn phí với bất kỳ lý do gì.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
-                                <img src="img/blog/blog-3.jpg" alt="">
+                                <img src="https://chaysach.com/wp-content/uploads/2016/06/ANTOAN-300x300.jpg.webp" alt="">
                             </div>
                             <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Visit the clean farm in the US</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                                <h5><a href="#">Khuyến mãi, tặng quà và giảm giá để tri ân</a></h5>
+                                <p>Chayfood luôn mong muốn khách hàng được thưởng thức nhiều hơn và tiết kiệm hơn khi đi mua sắm thực phẩm chay.</p>
                             </div>
                         </div>
                     </div>

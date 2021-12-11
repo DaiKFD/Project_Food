@@ -39,8 +39,10 @@ public class Home extends HttpServlet {
         DAO dao = new DAO();
         List<Food> foods = dao.getAllProduct();
         List<Category> listCate = dao.getAllCategory();
+        List<Food> lasts = dao.getLast();
 
         request.setAttribute("foods", foods);
+        request.setAttribute("lasts", lasts);
         request.setAttribute("category", listCate);
         request.getRequestDispatcher("HomePage.jsp").forward(request, response);
     }

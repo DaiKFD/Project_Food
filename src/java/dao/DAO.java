@@ -52,6 +52,7 @@ public class DAO {
             System.out.println(c);
         }
     }
+
     public List<Category> getAllCategory() {
         List<Category> list = new ArrayList<>();
         String query = "SELECT * FROM Category";
@@ -61,32 +62,33 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Category(rs.getInt(1),
-                        rs.getString(2),rs.getString(3)));
+                        rs.getString(2), rs.getString(3)));
             }
         } catch (Exception e) {
         }
         return list;
     }
-//
-//    public Product getLast() {
-//        String query = "select top 1 * from product\n"
-//                + "order by id desc";
-//        try {
-//            conn = new DBContext().getConnection();//mo ket noi voi sql
-//            ps = conn.prepareStatement(query);
-//            rs = ps.executeQuery();
-//            while(rs.next()){
-//                return new Product(rs.getInt(1),
-//                        rs.getString(2),
-//                        rs.getString(3),
-//                        rs.getDouble(4),
-//                        rs.getString(5),
-//                        rs.getString(6));
-//            }
-//        } catch (Exception e) {
-//        }
-//        return null;
-//    }
+
+    public List<Food> getLast() {
+        List<Food> list = new ArrayList<>();
+        String query = "select top 3 * from Food\n"
+                + "order by FoodID desc";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Food(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 //
 //    public static void main(String[] args) {
 //        DAO dao = new DAO();
