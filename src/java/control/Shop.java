@@ -7,6 +7,7 @@ package control;
 
 import dao.DAO;
 import entity.Category;
+import entity.Food;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -37,6 +38,11 @@ public class Shop extends HttpServlet {
         int catId = Integer.parseInt(request.getParameter("cid"));
         DAO dao = new DAO();
         List<Category> categories = dao.getCategoryByID(catId);
+        List<Food> foods = dao.getAllProduct();
+        List<Category> listCate = dao.getAllCategory();
+
+        request.setAttribute("foods", foods);
+        request.setAttribute("category", listCate);
         request.setAttribute("cbyid", categories);
         request.getRequestDispatcher("ShopGrid.jsp").forward(request, response);
     }
