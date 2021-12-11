@@ -173,7 +173,7 @@
                             </div>
                             <ul>
                                 <c:forEach items="${category}" var="c">
-                                    <li><a href="#">${c.categoryName}</a></li>
+                                    <li><a href="shop?cid=${c.categoryID}">${c.categoryName}</a></li>
                                     </c:forEach>
                             </ul>
                         </div>
