@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Home", urlPatterns = {"/home"})
 public class Home extends HttpServlet {
-// id food moi nhat
-// 
+// id food moi nhat id = 4 so
+// id food banchay nhat id = 2 so
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
