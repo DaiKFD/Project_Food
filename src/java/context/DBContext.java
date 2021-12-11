@@ -20,10 +20,16 @@ public class DBContext {
     /*Insert your other code right after this comment*/
     /*Change/update information of your database connection, DO NOT change name of instance variables in this class*/
     private final String serverName = "localhost";
-    private final String dbName = "wish";
+    private final String dbName = "FoodProject";
     private final String portNumber = "1433";
     private final String instance="";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
-    private final String userID = "sa";
-    private final String password = "sa";
+    private final String userID = "prj301";
+    private final String password = "prj301";
+    public static void main(String[] args) {
+        try {
+            System.out.println(new DBContext().getConnection());
+        } catch (Exception e) {
+        }
+    }
 }
  

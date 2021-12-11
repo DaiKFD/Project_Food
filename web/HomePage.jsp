@@ -4,6 +4,7 @@
     Author     : nguye
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -158,11 +159,9 @@
                                 <span>Danh Mục</span>
                             </div>
                             <ul>
-                                <li><a href="#">Rau Quả Tươi</a></li>
-                                <li><a href="#">Thực Phẩm Chay Đông Lạnh</a></li>
-                                <li><a href="#">Chả Chay Ngon</a></li>
-                                <li><a href="#">Đồ Chay Ăn Liền</a></li>
-                                <li><a href="#">Gia Vị Chay, Sốt Chay</a></li>
+                                <c:forEach>
+                                    <li><a href="#">Rau Quả Tươi</a></li>
+                                    </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -206,33 +205,35 @@
         <section class="categories">
             <div class="container">
                 <div class="row">
-                    <div class="categories__slider owl-carousel">
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
-                                <h5><a href="#">Rau Quả Tươi</a></h5>
+                    <c:forEach items="foods" var="f">
+                        <div class="categories__slider owl-carousel">
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
+                                    <h5><a href="#">Rau Quả Tươi</a></h5>
+                                </div> 
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" data-setbg="img/categories/chaca.jpg">
+                                    <h5><a href="#">Chay Đông Lạnh</a></h5> 
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" data-setbg="img/categories/chachay.jpg">
+                                    <h5><a href="#">Chả Chay</a></h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" data-setbg="img/categories/anlien.jpg">
+                                    <h5><a href="#">Chay Ăn Liền</a></h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" data-setbg="img/categories/giavi.jpg">
+                                    <h5><a href="#">Gia Vị, Sốt</a></h5>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/chaca.jpg">
-                                <h5><a href="#">Chay Đông Lạnh</a></h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/chachay.jpg">
-                                <h5><a href="#">Chả Chay</a></h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/anlien.jpg">
-                                <h5><a href="#">Chay Ăn Liền</a></h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="img/categories/giavi.jpg">
-                                <h5><a href="#">Gia Vị, Sốt</a></h5>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
@@ -684,7 +685,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                         <div class="footer__widget" name="fixFooterogiua">
-                           
+
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
