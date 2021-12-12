@@ -98,7 +98,7 @@
                                     <a href="https://www.facebook.com/DaiKFD.1404/"><i class="fa fa-facebook"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Đăng Nhập</a>
+                                    <a href="Login.jsp"><i class="fa fa-user"></i> Đăng Nhập</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                     <div class="col-lg-9">
                         <div class="hero__search">
                             <div class="hero__search__form">
-                                <form action="search" method="GET">
+                                <form action="search">
                                     <input name="search" type="text" placeholder="Bạn Muốn Ăn Gì?">
                                     <button type="submit" class="site-btn">Search</button>
                                 </form>

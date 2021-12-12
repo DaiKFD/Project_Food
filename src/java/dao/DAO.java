@@ -136,28 +136,34 @@ public class DAO {
         }
         return null;
     }
-//
-//    public List<Product> searchByName(String txtSearch) {
-//        List<Product> list = new ArrayList<>();
-//        String query = "select * from product\n"
-//                + "where [name] like ?";
-//        try {
-//            conn = new DBContext().getConnection();//mo ket noi voi sql
-//            ps = conn.prepareStatement(query);
-//            ps.setString(1,"%"+ txtSearch+"%");
-//            rs = ps.executeQuery();
-//            while (rs.next()) {
-//                list.add(new Product(rs.getInt(1),
-//                        rs.getString(2),
-//                        rs.getString(3),
-//                        rs.getDouble(4),
-//                        rs.getString(5),
-//                        rs.getString(6)));
-//            }
-//        } catch (Exception e) {
-//        }
-//        return list;
-//    }
+
+    public List<Food> searchByName(String txtSearch) {
+        List<Food> list = new ArrayList<>();
+        String query = "select * from Food\n"
+                + "where [FoodName] like ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(query);
+            ps.setString(1,"%"+ txtSearch+"%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Food(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
 //
 
     public List<Food> getFoodByCID(int id) {
