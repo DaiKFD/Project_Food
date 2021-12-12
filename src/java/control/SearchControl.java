@@ -5,12 +5,8 @@
  */
 package control;
 
-import dao.DAO;
-import entity.Category;
-import entity.Food;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nguye
  */
-@WebServlet(name = "Shop", urlPatterns = {"/shop"})
-public class Shop extends HttpServlet {
+@WebServlet(name = "SearchControl", urlPatterns = {"/search"})
+public class SearchControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,20 +31,8 @@ public class Shop extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int catId = Integer.parseInt(request.getParameter("cid"));
-        DAO dao = new DAO();
-        List<Category> categories = dao.getCategoryByID(catId);
-        List<Food> foods = dao.getAllProduct();
-        List<Category> listCate = dao.getAllCategory();
-        List<Food> foodCat = dao.getFoodByCID(catId);
-        List<Food> lasts = dao.getLast();
-
-        request.setAttribute("foods", foods);
-        request.setAttribute("foodCat", foodCat);
-        request.setAttribute("lasts", lasts);
-        request.setAttribute("category", listCate);
-        request.setAttribute("cbyid", categories);
-        request.getRequestDispatcher("ShopGrid.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+      String txtSearch = request.getParameter("search");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

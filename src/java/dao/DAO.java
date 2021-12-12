@@ -37,7 +37,13 @@ public class DAO {
                         rs.getString(3),
                         rs.getDouble(4),
                         rs.getString(5),
-                        rs.getString(6)));
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12)));
             }
         } catch (Exception e) {
         }
@@ -83,13 +89,19 @@ public class DAO {
                         rs.getString(3),
                         rs.getDouble(4),
                         rs.getString(5),
-                        rs.getString(6)));
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12)));
             }
         } catch (Exception e) {
         }
         return list;
     }
-    
+
     public List<Category> getCategoryByID(int cid) {
         List<Category> list = new ArrayList<>();
         String query = "select * from Category\n"
@@ -106,6 +118,23 @@ public class DAO {
         } catch (Exception e) {
         }
         return list;
+    }
+    
+    public Category getOneCategoryByID(int cid) {
+        String query = "select * from Category\n"
+                + "where CategoryID = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, cid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Category(rs.getInt(1),
+                        rs.getString(2));
+            }
+        } catch (Exception e) {
+        }
+        return null;
     }
 //
 //    public List<Product> searchByName(String txtSearch) {
@@ -130,13 +159,42 @@ public class DAO {
 //        return list;
 //    }
 //
-    public Food getFoodByID(String id) {
+
+    public List<Food> getFoodByCID(int id) {
+        List<Food> list = new ArrayList<>();
+        String query = "select * from Food\n"
+                + "where CategoryID = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Food(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public Food getFoodByID(int id) {
         String query = "select * from Food\n"
                 + "where FoodID = ?";
         try {
             connection = new DBContext().getConnection();//mo ket noi voi sql
             ps = connection.prepareStatement(query);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Food(rs.getInt(1),
@@ -144,7 +202,13 @@ public class DAO {
                         rs.getString(3),
                         rs.getDouble(4),
                         rs.getString(5),
-                        rs.getString(6));
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12));
             }
         } catch (Exception e) {
         }

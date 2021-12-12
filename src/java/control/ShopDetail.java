@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nguye
  */
-@WebServlet(name = "Shop", urlPatterns = {"/shop"})
-public class Shop extends HttpServlet {
+@WebServlet(name = "ShopDetail", urlPatterns = {"/details"})
+public class ShopDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,20 +35,23 @@ public class Shop extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int catId = Integer.parseInt(request.getParameter("cid"));
+        int foodId = Integer.parseInt(request.getParameter("fid"));
+ //       int catId = Integer.parseInt(request.getParameter("cid"));
         DAO dao = new DAO();
-        List<Category> categories = dao.getCategoryByID(catId);
-        List<Food> foods = dao.getAllProduct();
-        List<Category> listCate = dao.getAllCategory();
-        List<Food> foodCat = dao.getFoodByCID(catId);
-        List<Food> lasts = dao.getLast();
+        Food foodDetail = dao.getFoodByID(foodId);
+  //      Category category = dao.getOneCategoryByID(catId);
+        //       List<Food> foods = dao.getAllProduct();
+       List<Category> listCate = dao.getAllCategory();
+//        List<Food> foodCat = dao.getFoodByCID(catId);
+//        List<Food> lasts = dao.getLast();
 
-        request.setAttribute("foods", foods);
-        request.setAttribute("foodCat", foodCat);
-        request.setAttribute("lasts", lasts);
-        request.setAttribute("category", listCate);
-        request.setAttribute("cbyid", categories);
-        request.getRequestDispatcher("ShopGrid.jsp").forward(request, response);
+        request.setAttribute("detail", foodDetail);
+//        request.setAttribute("foods", foods);
+        //       request.setAttribute("foodCat", foodCat);
+        //       request.setAttribute("lasts", lasts);
+      request.setAttribute("category", listCate);
+//        request.setAttribute("cbyid", categories);
+        request.getRequestDispatcher("ShopDetails.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -78,6 +81,7 @@ public class Shop extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
