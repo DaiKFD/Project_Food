@@ -6,6 +6,7 @@
 package dao;
 
 import context.DBContext;
+import entity.Account;
 import entity.Category;
 import entity.Food;
 import java.sql.Connection;
@@ -48,15 +49,6 @@ public class DAO {
         } catch (Exception e) {
         }
         return foods;
-    }
-
-    public static void main(String[] args) {
-        DAO dao = new DAO();
-        List<Food> foods = dao.getAllProduct();
-        List<Category> list = dao.getAllCategory();
-        for (Category c : list) {
-            System.out.println(c);
-        }
     }
 
     public List<Category> getAllCategory() {
@@ -119,7 +111,7 @@ public class DAO {
         }
         return list;
     }
-    
+
     public Category getOneCategoryByID(int cid) {
         String query = "select * from Category\n"
                 + "where CategoryID = ?";
@@ -144,7 +136,7 @@ public class DAO {
         try {
             connection = new DBContext().getConnection();//mo ket noi voi sql
             ps = connection.prepareStatement(query);
-            ps.setString(1,"%"+ txtSearch+"%");
+            ps.setString(1, "%" + txtSearch + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Food(rs.getInt(1),
@@ -221,14 +213,32 @@ public class DAO {
         return null;
     }
 
+    public Account login(String user, String pass) {
+        String sql = "SELECT * FROM Account WHERE userName = ? AND password = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
 //
-//    public static void main(String[] args) {
-//        DAO dao = new DAO();
-//        List<Product> list = dao.getAllProduct();
-//        List<Category> listC = dao.getAllCategory();
-//
-//        for (Category o : listC) {
-//            System.out.println(o);
-//        }
-//    }
+    public static void main(String[] args) {
+        DAO dao = new DAO();
+        Account list = dao.login("daikfd", "1234");
+
+        System.out.println(list);
+
+    }
 }

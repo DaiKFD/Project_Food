@@ -5,6 +5,8 @@
  */
 package control;
 
+import dao.DAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,18 +33,16 @@ public class LoginControl extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginControl</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginControl at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
+        DAO dao = new DAO();
+        Account a = dao.login(userName, password);
+        if (a == null) {
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+
+        } else {
+            request.getRequestDispatcher("home").forward(request, response);
+
         }
     }
 

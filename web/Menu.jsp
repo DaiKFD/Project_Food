@@ -50,7 +50,7 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="./index.html">TRANG CHỦ</a></li>
+                    <li class="active"><a href="./indexHome.html">TRANG CHỦ</a></li>
                     <li><a href="./shop-grid.html">CỬA HÀNG</a></li>
                     <li><a href="#">TRANG</a>
                         <ul class="header__menu__dropdown">
@@ -109,13 +109,13 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="header__logo">
-                            <a href="./index.html"><img src="img/chayfoodlogo.png" alt=""></a>
+                            <a href="./indexHome.html"><img src="img/chayfoodlogo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                                <li class="active"><a href="./indexHome.html">Trang Chủ</a></li>
                                 <li><a href="./shop-grid.html">Cửa Hàng</a></li>
                                 <li><a href="#">TRANG</a>
                                     <ul class="header__menu__dropdown">
