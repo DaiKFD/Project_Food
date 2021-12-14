@@ -50,8 +50,8 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="./indexHome.html">TRANG CHỦ</a></li>
-                    <li><a href="./shop-grid.html">CỬA HÀNG</a></li>
+                    <li class="active"><a href="home">TRANG CHỦ</a></li>
+                    <li><a href="clickhome">CỬA HÀNG</a></li>
                     <li><a href="#">TRANG</a>
                         <ul class="header__menu__dropdown">
                             <li><a href="./shop-details.html">CHI TIẾT CỬA HÀNG</a></li>
@@ -99,9 +99,17 @@
                                 </div>
                                 <div class="header__top__right__auth">
 
-                                    <c:if test="${sessionScope.account !=null}">
-                                        <a href="login"><i class="fa fa-user"></i>Xin Chào ${sessionScope.account.user}</a>
-                                        <a href="login">Đăng Xuất</a>
+                                    <c:if test="${sessionScope.account != null}">
+                                        <c:if test="${sessionScope.account.isAdmin == 1}">
+                                            <a href="#"></i> Quản Lý Tài Khoản</a>
+                                        </c:if>
+
+                                        <c:if test="${sessionScope.account.isSell == 1}">
+                                            <a href="manager"></i> Quản Lý Sản Phẩm</a>
+                                        </c:if>
+
+                                        <a href="#"><i class="fa fa-user"></i>Xin Chào ${sessionScope.account.user}</a>
+                                        <a href="logout">Đăng Xuất</a>
                                     </c:if>
                                     <c:if test="${sessionScope.account == null}">
                                         <a href="login"><i class="fa fa-user"></i> Đăng Nhập</a>
@@ -117,18 +125,17 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="header__logo">
-                            <a href="./indexHome.html"><img src="img/chayfoodlogo.png" alt=""></a>
+                            <a href="home"><img src="img/chayfoodlogo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="./indexHome.html">Trang Chủ</a></li>
-                                <li><a href="./shop-grid.html">Cửa Hàng</a></li>
+                                <li class="active"><a href="home">Trang Chủ</a></li>
+                                <li><a href="clickhome">Cửa Hàng</a></li>
                                 <li><a href="#">TRANG</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="./shop-details.html">CHI TIẾT CỬA HÀNG</a></li>
-                                        <li><a href="./shoping-cart.html">GIỎ HÀNG</a></li>
+                                        <li><a href="ShopingCart.jsp">GIỎ HÀNG</a></li>
                                         <li><a href="./checkout.html">THANH TOÁN</a></li>
                                     </ul>
                                 </li>
@@ -140,7 +147,6 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                             </ul>
                             <div class="header__cart__price">Tổng cộng: <span>150.000vnd</span></div>

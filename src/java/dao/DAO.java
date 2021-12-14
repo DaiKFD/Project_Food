@@ -224,14 +224,35 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Account(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2),
-                        rs.getInt(3),
-                        rs.getInt(4));
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5));
             }
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public List<Account> getAllAccount() {
+        List<Account> accounts = new ArrayList<>();
+        String sql = "SELECT * FROM Account";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                accounts.add(new Account(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5)));
+            }
+        } catch (Exception e) {
+        }
+        return accounts;
     }
 
     public Account checkAccountExist(String user) {
@@ -243,10 +264,11 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Account(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2),
-                        rs.getInt(3),
-                        rs.getInt(4));
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5));
             }
         } catch (Exception e) {
         }
@@ -254,7 +276,19 @@ public class DAO {
     }
 
     public void signUp(String user, String pass) {
-        String sql = "INSERT INTO Account VALUES(?',?,0,0)";
+        DAO dao = new DAO();
+        int max = 0;
+        List<Account> accounts = dao.getAllAccount();
+        for (Account a : accounts) {
+            if (a.getUid() > max) {
+                max = a.getUid();
+            }
+        }
+        String sql = "INSERT INTO Account ([Uid]\n"
+                + "           ,[userName]\n"
+                + "           ,[password]\n"
+                + "           ,[isSell]\n"
+                + "           ,[isAdmin]) VALUES(" + ++max + ",?,?,0,0)";
         try {
             connection = new DBContext().getConnection();//mo ket noi voi sql
             ps = connection.prepareStatement(sql);
@@ -265,7 +299,116 @@ public class DAO {
         }
     }
 
+    //Manage Food
+    public List<Food> getFoodBySellID(int id) {
+        List<Food> list = new ArrayList<>();
+        String query = "select * from Food\n"
+                + "where SellID = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Food(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8),
+                        rs.getDouble(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getInt(13)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+//Them ,sua,xoa
+
+    public void deleteFood(int id) {
+        String sql = "DELETE FROM Food WHERE FoodID = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+//  int fid = Integer.parseInt(request.getParameter("fid"));
+//        String fname = request.getParameter("name");
+//        String fimage = request.getParameter("url");
+//        String price = request.getParameter("price");
+//        String des = request.getParameter("descrip");
+//        String sanco = request.getParameter("avail");
+//        String weight = request.getParameter("weight");
+//        String category = request.getParameter("cate");
+
+    public void insertFood(int fid, String fname, String fimage, String price, String des, String sanco, String weight, String category, int sid) {
+        String sql = "INSERT INTO [dbo].[Food]\n"
+                + "           ([FoodID]\n"
+                + "           ,[FoodName]\n"
+                + "           ,[FoodImage]\n"
+                + "           ,[FoodPrice]\n"
+                + "           ,[FoodDescription]\n"
+                + "		   ,[CategoryID]\n"
+                + "           ,[FoodAvailability]\n"
+                + "           ,[FoodWeight],\n"
+                + "		   [SellID])\n"
+                + "     VALUES(?,?,?,?,?,?,?,?,?)\n";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, fid);
+            ps.setString(2, fname);
+            ps.setString(3, fimage);
+            ps.setString(4, price);
+            ps.setString(5, des);
+            ps.setString(6, sanco);
+            ps.setString(7, weight);
+            ps.setString(8, category);
+            ps.setInt(9, sid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void UpdateFood(int fid, String fname, String fimage, String price, String des, String sanco, String weight, String category, int sid) {
+        String sql = "UPDATE [dbo].[Food] SET\n"
+                + "           [FoodID] = ?\n"
+                + "           ,[FoodName] = ?\n"
+                + "           ,[FoodImage] = ?\n"
+                + "           ,[FoodPrice] = ?\n"
+                + "           ,[FoodDescription] = ?\n"
+                + "		   ,[CategoryID] = ?\n"
+                + "           ,[FoodAvailability] = ?\n"
+                + "           ,[FoodWeight] = ?,\n"
+                + "		   [SellID] = ?\n"
+                + "     WHERE [FoodID] = ?";
+        try {
+            connection = new DBContext().getConnection();//mo ket noi voi sql
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, fid);
+            ps.setString(2, fname);
+            ps.setString(3, fimage);
+            ps.setString(4, price);
+            ps.setString(5, des);
+            ps.setString(6, sanco);
+            ps.setString(7, weight);
+            ps.setString(8, category);
+            ps.setInt(9, sid);
+            ps.setInt(10, fid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 //test
+
     public static void main(String[] args) {
         DAO dao = new DAO();
         Account list = dao.login("daikfd", "1234");

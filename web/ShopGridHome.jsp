@@ -14,9 +14,9 @@
 <!DOCTYPE html>
 <% List<Food> lasts
             = (List<Food>) request.getAttribute("lasts");
-    List<Food> foodCat = (List<Food>) request.getAttribute("foodCat");
+    List<Food> foods = (List<Food>) request.getAttribute("foods");
     String price = "";
-    int countSoluong = foodCat.size();
+    int countSoluong = foods.size();
 %>
 <jsp:include page="Menu.jsp"></jsp:include>
 
@@ -95,16 +95,16 @@
             <div class="col-lg-9 col-md-7">
                 <div class="product__discount">
                     <div class="section-title product__discount__title">
-                        <h2>Sản Phẩm</h2>
+                        <h2>Sale Off</h2>
                     </div>
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sắp Xếp</span>
+                                    <span>Sort By</span>
                                     <select>
-                                        <option value="0">Mặc Định</option>
-                                        <option value="0">Giá Sản Phẩm</option>
+                                        <option value="0">Default</option>
+                                        <option value="0">Default</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,9 +122,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <% for (Food f : foodCat) {%>
+                        <% for (Food f : foods) {%>
                         <% price = String.valueOf(f.getFoodPrice()).
-                                    replace(".0", " VND");%>
+                                            replace(".0", " VND");%>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<%=f.getFoodImage()%>">
@@ -155,7 +155,7 @@
 <!-- Product Section End -->
 
 <!-- Footer Section Begin -->
-<jsp:include page="Footer.jsp"></jsp:include>
+        <jsp:include page="Footer.jsp"></jsp:include>
 
 
 

@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                     <div class="sidebar__item">
-                        <h4>Price</h4>
+                        <h4>Giá Sản Phẩm</h4>
                         <div class="price-range-wrap">
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                  data-min="10" data-max="540">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="sidebar__item">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
+                            <h4>Sản Phẩm Mới</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
                                     <% for (Food f : lasts) {%>
@@ -95,16 +95,16 @@
             <div class="col-lg-9 col-md-7">
                 <div class="product__discount">
                     <div class="section-title product__discount__title">
-                        <h2>Sale Off</h2>
+                        <h2>Sản Phẩm</h2>
                     </div>
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sort By</span>
+                                    <span>Sắp Xếp</span>
                                     <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="0">Mặc Định</option>
+                                        <option value="0">Giá Sản Phẩm</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                     <div class="row">
                         <% for (Food f : foodCat) {%>
                         <% price = String.valueOf(f.getFoodPrice()).
-                                            replace(".0", " VND");%>
+                                    replace(".0", " VND");%>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<%=f.getFoodImage()%>">
@@ -155,7 +155,7 @@
 <!-- Product Section End -->
 
 <!-- Footer Section Begin -->
-        <jsp:include page="Footer.jsp"></jsp:include>
+<jsp:include page="Footer.jsp"></jsp:include>
 
 
 

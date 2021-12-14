@@ -4,11 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/dao/DAO.java</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/control/LogoutControl.java</file>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/control/SignUpControl.java</file>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/web/Login.jsp</file>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/control/LoginControl.java</file>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/control/Shop.java</file>
             <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/web/Register.jsp</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/web/checkout.html</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/web/Menu.jsp</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/control/Home.java</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/web/ShopGrid.jsp</file>
+            <file>file:/D:/file%20C/SE5/PRJ301_BL5/ASSM/Github/Project_Food/src/java/entity/Account.java</file>
         </group>
     </open-files>
 </project-private>

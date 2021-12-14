@@ -11,12 +11,29 @@ package entity;
  */
 public class Account {
 
+    private int Uid;
     private String user;
     private String pass;
     private int isSell;
     private int isAdmin;
 
     public Account() {
+    }
+
+    public void setUid(int Uid) {
+        this.Uid = Uid;
+    }
+
+    public int getUid() {
+        return Uid;
+    }
+
+    public Account(int Uid, String user, String pass, int isSell, int isAdmin) {
+        this.Uid = Uid;
+        this.user = user;
+        this.pass = pass;
+        this.isSell = isSell;
+        this.isAdmin = isAdmin;
     }
 
     public Account(String user, String pass, int isSell, int isAdmin) {
@@ -41,6 +58,7 @@ public class Account {
     public int getIsAdmin() {
         return isAdmin;
     }
+
     public void setUser(String user) {
         this.user = user;
     }

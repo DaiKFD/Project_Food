@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author nguye
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/login"})
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "AddControl", urlPatterns = {"/add"})
+public class AddControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +34,8 @@ public class LoginControl extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,19 +50,7 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cookie arr[] = request.getCookies();
-        if (arr != null) {
-            for (Cookie o : arr) {
-                if (o.getName().equals("userC")) {
-                    request.setAttribute("username", o.getValue());
-                }
-                if (o.getName().equals("passC")) {
-                    request.setAttribute("password", o.getValue());
-                }
-            }
-        }
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**
@@ -76,36 +64,22 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userName = request.getParameter("username");
-        String password = request.getParameter("password");
-        String remember = request.getParameter("remember");
+        int fid = Integer.parseInt(request.getParameter("fid"));
+        String fname = request.getParameter("name");
+        String fimage = request.getParameter("url");
+        String price = request.getParameter("price");
+        String des = request.getParameter("descrip");
+        String sanco = request.getParameter("avail");
+        String weight = request.getParameter("weight");
+        String category = request.getParameter("cate");
+
+        HttpSession session = request.getSession();
+        Account a = (Account) session.getAttribute("account");
+        int sid = a.getUid();
         DAO dao = new DAO();
-        Account a = dao.login(userName, password);
-        if (a == null) {
-            request.setAttribute("mess", "Wrong Username or Password");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-
-        } else {
-            //chuyen trang ma truyen ca du lieu
-            //request.getRequestDispatcher("home").forward(request, response);
-            HttpSession session = request.getSession();
-            session.setAttribute("account", a);
-
-            Cookie u = new Cookie("userC", userName);
-            Cookie p = new Cookie("passC", password);
-            u.setMaxAge(60 * 60 * 60);
-
-            if (remember != null) {
-                p.setMaxAge(60 * 60 * 60);
-            } else {
-                p.setMaxAge(0);
-            }
-            response.addCookie(u);
-            response.addCookie(p);
-            session.setMaxInactiveInterval(10000);
-            //chuyen trang ma khong truyen du lieu
-            response.sendRedirect("home");
-        }
+        dao.insertFood(fid, fname, fimage, price, des, category, sanco, weight, sid);
+        response.sendRedirect("manager");
+                
     }
 
     /**

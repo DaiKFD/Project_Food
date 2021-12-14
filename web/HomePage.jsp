@@ -35,7 +35,7 @@
                         <c:forEach items="${category}" var="c">
                             <div class="col-lg-3">
                                 <div class="categories__item set-bg" data-setbg="${c.categoryImage}">
-                                    <h5><a href="#">${c.categoryName}</a></h5>
+                                    <h5><a href="shop?cid=${c.categoryID}">${c.categoryName}</a></h5>
                                 </div> 
                             </div>     
                         </c:forEach>
@@ -69,7 +69,7 @@
                                 </ul>
                             </div>
                             <div class="featured__item__text">
-                                <h6><a href="#"><%=f.getFoodName()%></a></h6>
+                                <h6><a href="details?fid=<%=f.getFoodId()%>"><%=f.getFoodName()%></a></h6>
                                 <h5><%=price%></h5>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
 
                                     <% for (Food f : lasts) {%>
                                     <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
                                         </div>
@@ -110,7 +110,7 @@
                                 <div class="latest-prdouct__slider__item">
                                     <% for (Food f : lasts) {%>
                                     <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
                                         </div>
@@ -133,7 +133,7 @@
                                     <% for (Food f : foods) {%>
                                     <% if (Pattern.matches(regex, String.valueOf(f.getFoodId()))) {%>
                                     <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
-                                    <a  href = "#" class="latest-product__item">
+                                    <a  href = "details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
 
                                             <img src="<%=f.getFoodImage()%>" alt="">
@@ -151,7 +151,7 @@
                                     <% for (Food f : foods) {%>
                                     <% if (Pattern.matches(regex, String.valueOf(f.getFoodId()))) {%>
                                     <% price = String.valueOf(f.getFoodPrice()).replace(".0", " VND");%>
-                                    <a  href = "#" class="latest-product__item">
+                                    <a  href = "details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
 
                                             <img src="<%=f.getFoodImage()%>" alt="">
@@ -176,7 +176,7 @@
                                     <%if (count1 == 3) {
                                             break;
                                         }%>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
                                         </div>
@@ -194,7 +194,7 @@
                                     <%if (count2 == 3) {
                                             break;
                                         }%>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="details?fid=<%=f.getFoodId()%>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="<%=f.getFoodImage()%>" alt="">
                                         </div>

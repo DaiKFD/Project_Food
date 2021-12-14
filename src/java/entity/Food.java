@@ -22,8 +22,57 @@ public class Food{
     private String foodImage2;
     private String foodImage3;
     private String foodImage4;
+    private int SellID;
     
     public Food() {
+    }
+
+    public void setFoodImage2(String foodImage2) {
+        this.foodImage2 = foodImage2;
+    }
+
+    public void setFoodImage3(String foodImage3) {
+        this.foodImage3 = foodImage3;
+    }
+
+    public void setFoodImage4(String foodImage4) {
+        this.foodImage4 = foodImage4;
+    }
+
+    public void setSellID(int SellID) {
+        this.SellID = SellID;
+    }
+
+    public String getFoodImage2() {
+        return foodImage2;
+    }
+
+    public String getFoodImage3() {
+        return foodImage3;
+    }
+
+    public String getFoodImage4() {
+        return foodImage4;
+    }
+
+    public int getSellID() {
+        return SellID;
+    }
+
+    public Food(int foodId, String foodName, String foodImage, double foodPrice, String foodTile, String foodDesctiption, String categoryID, int foodAvailability, double foodWeight, String foodImage2, String foodImage3, String foodImage4, int SellID) {
+        this.foodId = foodId;
+        this.foodName = foodName;
+        this.foodImage = foodImage;
+        this.foodPrice = foodPrice;
+        this.foodTile = foodTile;
+        this.foodDesctiption = foodDesctiption;
+        this.categoryID = categoryID;
+        this.foodAvailability = foodAvailability;
+        this.foodWeight = foodWeight;
+        this.foodImage2 = foodImage2;
+        this.foodImage3 = foodImage3;
+        this.foodImage4 = foodImage4;
+        this.SellID = SellID;
     }
 
     public Food(int foodId, String foodName, String foodImage, double foodPrice, String foodTile, String foodDesctiption) {
