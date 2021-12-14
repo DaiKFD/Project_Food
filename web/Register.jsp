@@ -38,7 +38,7 @@
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
         outline: 0;
-        background: #4CAF50;
+        background: #40BF73;
         width: 100%;
         border: 0;
         padding: 15px;
@@ -57,11 +57,8 @@
         font-size: 12px;
     }
     .form .message a {
-        color: #4CAF50;
+        color: #40BF73;
         text-decoration: none;
-    }
-    .form .register-form {
-        display: none;
     }
     .container {
         position: relative;
@@ -114,13 +111,14 @@
     <body>
         <div class="login-page">
             <div class="form">
-             <!-- <form class="register-form"> -->
-                    <input type="text" placeholder="name"/>
-                    <input type="password" placeholder="password"/>
+             <form class="register-form">
+                    <input name="usernam" type="text" placeholder="name"/>
+                    <input name="password" type="password" placeholder="password"/>
+                    <input name="repass" type="password" placeholder="re-enter password"/>
                     <input type="text" placeholder="email address"/>
                     <button>create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                <!--  </form>-->
+                    <p class="message">Already registered? <a href="Login.jsp">Sign In</a></p>
+                </form>
             </div>
         </div>
 

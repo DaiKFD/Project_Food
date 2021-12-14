@@ -38,7 +38,7 @@
         font-family: "Roboto", sans-serif;
         text-transform: uppercase;
         outline: 0;
-        background: #4CAF50;
+        background: #40BF73;
         width: 100%;
         border: 0;
         padding: 15px;
@@ -57,7 +57,7 @@
         font-size: 12px;
     }
     .form .message a {
-        color: #4CAF50;
+        color: #40BF73;
         text-decoration: none;
     }
     .form .register-form {
@@ -105,7 +105,21 @@
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;      
-    }</style>
+    }
+    .text-danger{
+        color: red;
+
+    }
+
+</style>
+<script>
+    
+        var element = document.getElementById('exampleCheck1');
+
+        element.style.width = '';
+        element.style.height = '';  
+    
+</script>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -114,9 +128,14 @@
     <body>
         <div class="login-page">
             <div class="form">
-                <form class="login-form">
-                    <input type="text" placeholder="username"/>
-                    <input type="password" placeholder="password"/>
+                <form class="login-form" action="login" method="POST">
+                    <p class ="text-danger">${mess}</p>
+                    <input value="${username}" name="username" type="text" placeholder="username"/>
+                    <input value="${password}" name="password" type="password" placeholder="password"/>
+                    <div class="form-group form-check">
+                        <input name="remember" value="1" type="checkbox" class="form-check-input" id="exampleCheck1">
+                        Remember me
+                    </div>
                     <button>login</button>
                     <p class="message">Not registered? <a href="Register.jsp">Create an account</a></p>
                 </form>
@@ -128,5 +147,6 @@
         $('.message a').click(function () {
             $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
         });
+
     </script>
 </html>

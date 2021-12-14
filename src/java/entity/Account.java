@@ -11,7 +11,6 @@ package entity;
  */
 public class Account {
 
-    private int id;
     private String user;
     private String pass;
     private int isSell;
@@ -20,16 +19,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String user, String pass, int isSell, int isAdmin) {
-        this.id = id;
+    public Account(String user, String pass, int isSell, int isAdmin) {
         this.user = user;
         this.pass = pass;
         this.isSell = isSell;
         this.isAdmin = isAdmin;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getUser() {
@@ -47,11 +41,6 @@ public class Account {
     public int getIsAdmin() {
         return isAdmin;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setUser(String user) {
         this.user = user;
     }
@@ -67,10 +56,4 @@ public class Account {
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
-
-    @Override
-    public String toString() {
-        return "Account{" + "id=" + id + ", user=" + user + ", pass=" + pass + ", isSell=" + isSell + ", isAdmin=" + isAdmin + '}';
-    }
-
 }

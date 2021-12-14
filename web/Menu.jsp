@@ -98,7 +98,15 @@
                                     <a href="https://www.facebook.com/DaiKFD.1404/"><i class="fa fa-facebook"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="Login.jsp"><i class="fa fa-user"></i> Đăng Nhập</a>
+
+                                    <c:if test="${sessionScope.account !=null}">
+                                        <a href="login"><i class="fa fa-user"></i>Xin Chào ${sessionScope.account.user}</a>
+                                        <a href="login">Đăng Xuất</a>
+                                    </c:if>
+                                    <c:if test="${sessionScope.account == null}">
+                                        <a href="login"><i class="fa fa-user"></i> Đăng Nhập</a>
+                                    </c:if>
+
                                 </div>
                             </div>
                         </div>
