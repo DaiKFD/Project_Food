@@ -141,7 +141,11 @@ public final class Register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        font-family: \"Roboto\", sans-serif;\n");
       out.write("        -webkit-font-smoothing: antialiased;\n");
       out.write("        -moz-osx-font-smoothing: grayscale;      \n");
-      out.write("    }</style>\n");
+      out.write("    }\n");
+      out.write("    .text-danger{\n");
+      out.write("        color: yellow;\n");
+      out.write("    }\n");
+      out.write("</style>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -150,8 +154,11 @@ public final class Register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        <div class=\"login-page\">\n");
       out.write("            <div class=\"form\">\n");
-      out.write("             <form class=\"register-form\">\n");
-      out.write("                    <input name=\"usernam\" type=\"text\" placeholder=\"name\"/>\n");
+      out.write("                <form class=\"register-form\" action=\"signup\">\n");
+      out.write("                    <p class =\"text-danger\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mess}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</p>\n");
+      out.write("                    <input name=\"username\" type=\"text\" placeholder=\"name\"/>\n");
       out.write("                    <input name=\"password\" type=\"password\" placeholder=\"password\"/>\n");
       out.write("                    <input name=\"repass\" type=\"password\" placeholder=\"re-enter password\"/>\n");
       out.write("                    <input type=\"text\" placeholder=\"email address\"/>\n");

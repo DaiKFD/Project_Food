@@ -6,11 +6,14 @@
 package control;
 
 import dao.DAO;
-import entity.Account;
+import entity.Food;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nguye
  */
-@WebServlet(name = "SignUpControl", urlPatterns = {"/signup"})
-public class SignUpControl extends HttpServlet {
+@WebServlet(name = "OrderControl", urlPatterns = {"/order"})
+public class OrderControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +37,33 @@ public class SignUpControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
-        String re_pass = request.getParameter("repass");
-        if (!pass.equals(re_pass)) {
-            request.setAttribute("mess", "Mật khẩu nhập lại không giống");
-            request.getRequestDispatcher("Register.jsp").forward(request, response);
-        } else {
-            DAO dao = new DAO();
-            Account a = dao.checkAccountExist(user);
-            if (a == null) {
-                dao.signUp(user, pass);
-                request.setAttribute("mess", "Tạo tài khoản thành công");
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
-            } else {
-                request.setAttribute("mess", "Tạo tài đã tồn tại");
-                request.getRequestDispatcher("Register.jsp").forward(request, response);
-
+        Cookie arr[] = request.getCookies();
+        List<Food> list = new ArrayList<>();
+        DAO dao = new DAO();
+        for (Cookie o : arr) {
+            if (o.getName().equals("id")) {
+                String txt[] = o.getValue().split(",");
+                for (String s : txt) {
+                    list.add(dao.getFoodByID(Integer.parseInt(s)));
+                }
             }
         }
+        for (int i = 0; i < list.size(); i++) {
+            int count = 1;
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getFoodId()== list.get(j).getFoodId()) {
+                    count++;
+                    list.remove(j);
+                    j--;
+                    list.get(i).setFoodAvailability(count);
+                }
+            }
+        }
+        for (Cookie o : arr) {
+            o.setMaxAge(0);
+            response.addCookie(o);
+        }
+        response.sendRedirect("Home.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

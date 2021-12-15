@@ -136,7 +136,7 @@
                                 <li><a href="#">TRANG</a>
                                     <ul class="header__menu__dropdown">
                                         <li><a href="ShopingCart.jsp">GIỎ HÀNG</a></li>
-                                        <li><a href="./checkout.html">THANH TOÁN</a></li>
+                                        <li><a href="CheckOut.jsp">THANH TOÁN</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="./blog.html">Blog</a></li>

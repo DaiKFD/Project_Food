@@ -102,7 +102,9 @@
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;      
-    }</style>
+    }
+
+</style>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -111,8 +113,9 @@
     <body>
         <div class="login-page">
             <div class="form">
-             <form class="register-form">
-                    <input name="usernam" type="text" placeholder="name"/>
+                <form class="register-form" action="signup">
+                    <p class ="text-danger">${mess}</p>
+                    <input name="username" type="text" placeholder="name"/>
                     <input name="password" type="password" placeholder="password"/>
                     <input name="repass" type="password" placeholder="re-enter password"/>
                     <input type="text" placeholder="email address"/>

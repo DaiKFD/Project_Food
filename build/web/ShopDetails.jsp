@@ -43,14 +43,12 @@
                                  src="${detail.foodImage}" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                 src="img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                 src="img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                 src="img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                 src="img/product/details/thumb-4.jpg" alt="">
+                            <img data-imgbigurl="${detail.foodImage2}"
+                                 src="${detail.foodImage2}" alt="">
+                            <img data-imgbigurl="${detail.foodImage3}"
+                                 src="${detail.foodImage3}" alt="">
+                            <img data-imgbigurl="${detail.foodImage4}"
+                                 src="${detail.foodImage4}" alt="">
                         </div>
                     </div>
                 </div>

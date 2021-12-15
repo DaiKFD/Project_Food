@@ -30,7 +30,7 @@ public final class ShopingCart_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -41,7 +41,12 @@ public final class ShopingCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("        ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html lang=\"zxx\">\n");
+      out.write("    ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Menu.jsp", out, false);
       out.write("\n");
       out.write("\n");
@@ -85,7 +90,7 @@ public final class ShopingCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <tr>\n");
       out.write("                                    <td class=\"shoping__cart__item\">\n");
       out.write("                                        <img src=\"img/cart/cart-1.jpg\" alt=\"\">\n");
-      out.write("                                        <h5>Vegetable?s Package</h5>\n");
+      out.write("                                        <h5>Vegetable’s Package</h5>\n");
       out.write("                                    </td>\n");
       out.write("                                    <td class=\"shoping__cart__price\">\n");
       out.write("                                        $55.00\n");
@@ -245,8 +250,8 @@ public final class ShopingCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"col-lg-12\">\n");
       out.write("                    <div class=\"footer__copyright\">\n");
       out.write("                        <div class=\"footer__copyright__text\"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->\n");
-      out.write("  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> by <a href=\"https://colorlib.com\" target=\"_blank\">Colorlib</a>\n");
-      out.write("  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>\n");
+      out.write("                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> by <a href=\"https://colorlib.com\" target=\"_blank\">Colorlib</a>\n");
+      out.write("                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>\n");
       out.write("                        <div class=\"footer__copyright__payment\"><img src=\"img/payment-item.png\" alt=\"\"></div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
