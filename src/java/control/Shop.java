@@ -9,13 +9,13 @@ import dao.DAO;
 import entity.Category;
 import entity.Food;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,7 +35,9 @@ public class Shop extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         int catId = Integer.parseInt(request.getParameter("cid"));
+        session.setAttribute("catId", catId);
         DAO dao = new DAO();
         List<Category> categories = dao.getCategoryByID(catId);
         List<Food> foods = dao.getAllProduct();
@@ -43,8 +45,8 @@ public class Shop extends HttpServlet {
         List<Food> foodCat = dao.getFoodByCID(catId);
         List<Food> lasts = dao.getLast();
 
-        request.setAttribute("foods", foods);
         request.setAttribute("foodCat", foodCat);
+        request.setAttribute("foods", foods);
         request.setAttribute("lasts", lasts);
         request.setAttribute("category", listCate);
         request.setAttribute("cbyid", categories);
@@ -77,7 +79,7 @@ public class Shop extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             processRequest(request, response);
     }
 
     /**

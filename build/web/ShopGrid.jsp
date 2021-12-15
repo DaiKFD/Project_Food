@@ -102,10 +102,12 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Sắp Xếp</span>
-                                    <select>
-                                        <option value="0">Mặc Định</option>
-                                        <option value="0">Giá Sản Phẩm</option>
-                                    </select>
+                                    <form action="shop" method="POST">
+                                        <select name="change"  onchange="document.change.submit();">
+                                            <option value="0">Mặc Định</option>
+                                            <option value="1">Giá Sản Phẩm</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">

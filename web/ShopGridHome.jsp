@@ -101,11 +101,13 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
-                                    </select>
+                                    <span>Sắp Xếp</span>
+                                    <form action="clickhome">
+                                        <select name="change" onchange="document.change.submit();">
+                                            <option value="0">Mặc Định</option>
+                                            <option value="1">Giá Sản Phẩm</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
